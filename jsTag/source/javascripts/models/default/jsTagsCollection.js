@@ -48,6 +48,7 @@ jsTag.factory('JSTagsCollection', ['JSTag', '$filter', function(JSTag, $filter) 
   JSTagsCollection.prototype.removeTag = function(tagIndex) {
     var tag = this.tags[tagIndex];
     delete this.tags[tagIndex];
+    tagsCounter--;
     angular.forEach(this._onRemoveListenerList, function (callback) {
       callback(tag);
     });
